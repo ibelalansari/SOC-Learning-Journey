@@ -1,297 +1,137 @@
-# Day 03 - TCP, Wireshark & Network Traffic Fundamentals
+# Day 03 - TCP & Wireshark Fundamentals
 
-## Overview
+## Objective
 
-On Day 3 of my SOC Analyst learning journey, I explored fundamental networking concepts by capturing and analyzing live network traffic using Wireshark.
-
-The primary objective of this lab was to understand how network communication occurs at the packet level and to analyze common protocols used in everyday network traffic.
+The goal of this lab was to understand how network communication works at the packet level by capturing and analyzing live traffic using Wireshark.
 
 ---
 
-# Lab Objectives
+## Topics Covered
 
-- Install and configure Wireshark
-- Capture live network traffic
-- Understand TCP Three-Way Handshake
-- Analyze TCP Flags
-- Observe DNS Query and Response
-- Analyze ICMP Echo Request and Reply
-- Analyze ARP Request and Response
-- Practice Wireshark Display Filters
-- Save packet captures for future analysis
-
----
-
-# Lab Environment
-
-| Item | Value |
-|------|-------|
-| Operating System | Windows 10 |
-| Tool | Wireshark 4.6.7 |
-| Network | Home Wi-Fi |
-| Packet Capture Format | .pcapng |
+- TCP Three-Way Handshake
+- TCP Flags
+- Wireshark Installation
+- Live Packet Capture
+- DNS Analysis
+- ICMP Analysis
+- TCP Analysis
+- ARP Analysis
+- Wireshark Display Filters
 
 ---
 
-# Packet Capture
+## Tools Used
 
-Capture File
-
-```
-captures/day03-first-capture.pcapng
-```
+- Wireshark 4.6.7
+- Windows 10
+- Command Prompt
 
 ---
 
-# TCP Three-Way Handshake
+## Packet Capture
 
-```
-Client                           Server
+The packet capture used throughout this lab can be downloaded below.
 
-SYN ----------------------------->
-
-          <----------------------- SYN + ACK
-
-ACK ----------------------------->
-```
-
-This process establishes a reliable TCP connection before data transmission begins.
+📥 **[day03-first-capture.pcapng](captures/day03-first-capture.pcapng)**
 
 ---
 
-# TCP Flags
+## Wireshark Filters
 
-| Flag | Description |
-|------|-------------|
-| SYN | Starts a TCP connection |
-| SYN-ACK | Server acknowledges the connection request |
-| ACK | Confirms received packets |
-| FIN | Gracefully terminates a connection |
-| RST | Immediately resets a connection |
-
----
-
-# Screenshots
-
-## 1. Wireshark Home
-
-<p align="center">
-<img src="screenshots/01-wireshark-home.png" width="900">
-</p>
+| Filter | Purpose |
+|---------|---------|
+| `dns` | Display DNS packets |
+| `icmp` | Display ICMP packets |
+| `tcp` | Display TCP packets |
+| `arp` | Display ARP packets |
+| `tcp.flags.syn == 1` | SYN packets |
+| `tcp.flags.syn == 1 && tcp.flags.ack == 1` | SYN-ACK packets |
+| `tcp.flags.ack == 1 && tcp.flags.syn == 0` | ACK packets |
 
 ---
 
-## 2. Live Packet Capture
+## Screenshots
 
-<p align="center">
-<img src="screenshots/02-live-packet-capture.png" width="900">
-</p>
+### Wireshark Home
 
----
-
-## 3. DNS Analysis
-
-Display Filter
-
-```
-dns
-```
-
-<p align="center">
-<img src="screenshots/03-dns-filter.png" width="900">
-</p>
-
-### Observation
-
-- DNS Query
-- DNS Response
-- Google lookup
-- ChatGPT lookup
+![Wireshark Home](screenshots/01-wireshark-home.png)
 
 ---
 
-## 4. ICMP Analysis
+### Live Packet Capture
 
-Display Filter
-
-```
-icmp
-```
-
-<p align="center">
-<img src="screenshots/04-icmp-filter.png" width="900">
-</p>
-
-### Observation
-
-- Echo Request
-- Echo Reply
-- Successful Ping
+![Live Packet Capture](screenshots/02-live-packet-capture.png)
 
 ---
 
-## 5. TCP Traffic
+### DNS Analysis
 
-Display Filter
-
-```
-tcp
-```
-
-<p align="center">
-<img src="screenshots/05-tcp-filter.png" width="900">
-</p>
-
-### Observation
-
-- HTTPS Communication
-- TLS Traffic
-- TCP Sessions
+![DNS Analysis](screenshots/03-dns-filter.png)
 
 ---
 
-## 6. TCP SYN Packets
+### ICMP Analysis
 
-Display Filter
-
-```
-tcp.flags.syn == 1
-```
-
-<p align="center">
-<img src="screenshots/06-tcp-syn.png" width="900">
-</p>
-
-### Observation
-
-Connection initiation packets.
+![ICMP Analysis](screenshots/04-icmp-filter.png)
 
 ---
 
-## 7. TCP SYN-ACK Packets
+### TCP Traffic
 
-Display Filter
-
-```
-tcp.flags.syn == 1 && tcp.flags.ack == 1
-```
-
-<p align="center">
-<img src="screenshots/07-tcp-syn-ack.png" width="900">
-</p>
-
-### Observation
-
-Server acknowledgement during connection establishment.
+![TCP Traffic](screenshots/05-tcp-filter.png)
 
 ---
 
-## 8. TCP ACK Packets
+### TCP SYN Packets
 
-Display Filter
-
-```
-tcp.flags.ack == 1 && tcp.flags.syn == 0
-```
-
-<p align="center">
-<img src="screenshots/08-tcp-ack.png" width="900">
-</p>
-
-### Observation
-
-Acknowledgement packets exchanged after successful connection.
+![TCP SYN](screenshots/06-tcp-syn.png)
 
 ---
 
-## 9. Ping Verification
+### TCP SYN-ACK Packets
 
-Command
-
-```cmd
-ping google.com
-```
-
-<p align="center">
-<img src="screenshots/09-ping-command.png" width="900">
-</p>
+![TCP SYN-ACK](screenshots/07-tcp-syn-ack.png)
 
 ---
 
-## 10. ARP Analysis
+### TCP ACK Packets
 
-Display Filter
-
-```
-arp
-```
-
-<p align="center">
-<img src="screenshots/10-arp-filter.png" width="900">
-</p>
-
-### Observation
-
-ARP Request
-
-```
-Who has 192.168.110.149?
-```
-
-ARP Reply
-
-```
-192.168.110.149 is at 00:e0:4d:00:32:4b
-```
-
-This demonstrates how IP addresses are resolved to MAC addresses within a local network.
+![TCP ACK](screenshots/08-tcp-ack.png)
 
 ---
 
-# Wireshark Display Filters Used
+### Ping Verification
+
+![Ping Command](screenshots/09-ping-command.png)
+
+---
+
+### ARP Analysis
+
+![ARP Analysis](screenshots/10-arp-filter.png)
+
+---
+
+## What I Learned
+
+- Captured live network traffic using Wireshark.
+- Understood how the TCP Three-Way Handshake establishes a connection.
+- Identified common TCP flags such as SYN, SYN-ACK, and ACK.
+- Observed DNS queries and responses.
+- Verified ICMP communication using the `ping` command.
+- Learned how ARP resolves IP addresses to MAC addresses.
+- Practiced using Wireshark display filters to inspect different network protocols.
+
+---
+
+## Repository Structure
 
 ```text
-dns
-
-icmp
-
-tcp
-
-arp
-
-tcp.flags.syn == 1
-
-tcp.flags.syn == 1 && tcp.flags.ack == 1
-
-tcp.flags.ack == 1 && tcp.flags.syn == 0
-```
-
----
-
-# Key Learnings
-
-- Installed Wireshark successfully
-- Captured live network traffic
-- Understood TCP Three-Way Handshake
-- Learned TCP Flags
-- Analyzed DNS communication
-- Captured ICMP Echo Request and Reply
-- Observed ARP Request and Response
-- Practiced common Wireshark display filters
-- Saved packet captures for future investigation
-
----
-
-# Repository Structure
-
-```
 Day03-TCP-Wireshark-Fundamentals
 │
 ├── README.md
-│
 ├── captures
 │   └── day03-first-capture.pcapng
-│
 └── screenshots
     ├── 01-wireshark-home.png
     ├── 02-live-packet-capture.png
@@ -307,22 +147,6 @@ Day03-TCP-Wireshark-Fundamentals
 
 ---
 
-# Next Steps
+## Conclusion
 
-- Windows Event Logs
-- Sysmon
-- Microsoft Defender
-- Microsoft Sentinel
-- KQL
-- Splunk
-- Detection Engineering
-
----
-
-## Author
-
-**Belal Ansari**
-
-GitHub: https://github.com/ibelalansari
-
-LinkedIn: https://linkedin.com/in/ibelalansari
+This lab gave me practical experience capturing and analyzing live network traffic with Wireshark. Understanding protocols such as TCP, DNS, ICMP, and ARP provides a strong foundation for packet analysis and future SOC investigations.
