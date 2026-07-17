@@ -4,6 +4,16 @@
 
 This repository documents my cybersecurity learning journey through practical labs, technical documentation, and hands-on projects.
 
+- Security Operations (SOC)
+- Ethical Hacking
+- Microsoft Security
+- Threat Detection
+- Digital Forensics
+- Incident Response
+- Threat Hunting
+
+The primary objective of this repository is to demonstrate practical cybersecurity skills through hands-on labs, technical documentation, and real-world investigations.
+
 ## Focus Areas
 
 - Security Operations (SOC)
