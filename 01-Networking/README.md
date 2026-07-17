@@ -1,23 +1,52 @@
 # Networking
 
-## Objective
+## Overview
 
-Learn networking fundamentals required for Security Operations and Ethical Hacking.
+Networking is the foundation of Security Operations, Threat Hunting, and Ethical Hacking.
+
+---
+
+## Learning Objectives
+
+- Understand network communication
+- Learn the OSI and TCP/IP models
+- Analyze packets using Wireshark
+- Understand common protocols
+- Build a strong networking foundation for SOC
+
+---
 
 ## Topics
 
+- Networking Fundamentals
 - OSI Model
 - TCP/IP
+- TCP Three-Way Handshake
 - Ports
 - DNS
-- HTTP/HTTPS
+- HTTP / HTTPS
 - ICMP
 - ARP
+- Routing
+- Subnetting
+- Wireshark
+- Packet Analysis
+
+---
 
 ## Labs
 
-Coming Soon
+| Lab | Status |
+|------|--------|
+| Networking Fundamentals | ✅ |
+| OSI & TCP/IP | ✅ |
+| Wireshark Basics | ✅ |
 
-## Notes
+---
 
-Coming Soon
+## Skills Gained
+
+- Packet Analysis
+- Network Troubleshooting
+- Protocol Analysis
+- Wireshark
