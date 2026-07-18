@@ -1,4 +1,4 @@
-# Day 03 - TCP & Wireshark Fundamentals
+# TCP & Wireshark Fundamentals
 
 ## Objective
 
