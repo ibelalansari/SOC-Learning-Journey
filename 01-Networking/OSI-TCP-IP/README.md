@@ -1,4 +1,4 @@
-# Day 02 - OSI & TCP/IP Fundamentals
+# OSI & TCP/IP Fundamentals
 
 ## Objective
 
