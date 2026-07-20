@@ -12,6 +12,8 @@
 Cybersecurity Professional • Ethical Hacking • Threat Detection • Security Operations (SOC)
 </p>
 
+#
+
 # Cybersecurity Portfolio
 
 Professional cybersecurity portfolio showcasing hands-on projects, technical documentation, and security research across offensive security, defensive security, cloud security, and security automation.
