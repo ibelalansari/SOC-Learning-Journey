@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="assets/github-banner.png" alt="Belal Ansari" width="100%">
+</p>
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=ibelalansari&label=Profile%20Views&color=0A66C2&style=for-the-badge" alt="Profile Views" />
+</p>
+
+<h1 align="center">Belal Ansari</h1>
+
+<p align="center">
+Cybersecurity Professional • Ethical Hacking • Threat Detection • Security Operations (SOC)
+</p>
+
 # Cybersecurity Portfolio
 
 Professional cybersecurity portfolio showcasing hands-on projects, technical documentation, and security research across offensive security, defensive security, cloud security, and security automation.
